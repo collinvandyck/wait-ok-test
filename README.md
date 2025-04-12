@@ -34,3 +34,8 @@ case ${1:-} in
 esac
 ```
 
+But `run-test.sh` DOES work.
+
+So it's either an issue with running gradle in this way or perhaps the proxy on my work computer is interfering.
+
+Next step: create a gradle project inside of this repo and have run-test.sh have it spin up a REST server for the script to connect to.
