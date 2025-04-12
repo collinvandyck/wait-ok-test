@@ -7,7 +7,7 @@ for s in $(seq 10 1); do
 done
 
 serve() {
-	nc -l 1234 <<-EOF
+	nc -l 8080 <<-EOF
 	HTTP/1.1 200 OK
 	EOF
 }

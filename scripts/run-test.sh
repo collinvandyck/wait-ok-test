@@ -3,13 +3,14 @@ set -euo pipefail
 
 case ${1:-} in
 	*)
-		sh -c 'while ! nc -z localhost 1234; do sleep 0.5; done; notify BE is ready 👍' &
+		port=8080
+		sh -c "wait-port $port; notify BE is ready \(port $port\) 👍" &
 		pid=$!
 		cleanup() {
 			kill "$pid" &>/dev/null
 		}
 		trap cleanup EXIT
-		scripts/run-server.sh
+		scripts/run-server-api.sh
 		;;
 esac
 
